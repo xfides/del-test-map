@@ -1,0 +1,40 @@
+/*
+<div class="container">
+    <div id="map"></div>
+    <div class="address">
+        <input type="text" class="address__input">
+        <button class="address__btn">Найти на карте</button>
+    </div>
+</div>
+*/
+
+#map {
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+}
+
+.container {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+.address {
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.address__input {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.address__btn{
+    margin-left: 30px;
+    margin-right: 30px;
+}
