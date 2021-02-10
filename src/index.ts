@@ -1,19 +1,11 @@
 import axios from 'axios';
 
-// console.log(123224);
+//bd32ba25-0301-432f-8889-b11c5c83891d - secret for yandex maps geokoder
 
 const findBtn = document.querySelector('.address__btn')!;
 const findInput = document.querySelector('.address__input')! as HTMLInputElement;
-//bd32ba25-0301-432f-8889-b11c5c83891d - secret for yandex maps geokoder
+
 findBtn.addEventListener('click', showAddressOnMap)
-
-function showAddressOnMap() {
-    const userInput = getInputValue(findInput);
-    let urlString:string = getData(userInput);
-    let response = sendRequest(urlString);
-
-    console.log(response);
-}
 
 function getInputValue(inputDomElem: HTMLInputElement): string {
     return inputDomElem.value.trim();
@@ -26,6 +18,18 @@ function getData(address:string){
 }
 
 function sendRequest(urlString:string){
-    return axios(urlString);
+    console.log(54345);
+    axios.get(urlString)
+        .then(function (response) {
+            // handle success
+            console.log(13232213);
+            console.log(response.data.response);
+        })
+}
+
+function showAddressOnMap() {
+    const userInput = getInputValue(findInput);
+    let urlString:string = getData(userInput);
+    sendRequest(urlString);
 }
 
