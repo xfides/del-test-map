@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node" ,
     /* Basic Options */
 
     "target": "es6",

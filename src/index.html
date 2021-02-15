@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
 <div class="container">
-    <div id="map"></div>
+    <div id="map" style="width: 600px; height: 400px"></div>
     <div class="address">
         <input type="text" class="address__input">
         <button class="address__btn">Найти на карте</button>
     </div>
 </div>
 
-<script src="./bundle.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=bd32ba25-0301-432f-8889-b11c5c83891d&lang=ru_RU" type="text/javascript"></script>
+    <script src="./bundle.js"></script>
 </body>
 </html>

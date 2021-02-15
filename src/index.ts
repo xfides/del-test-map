@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import ymaps from '@types/yandex-maps'
 //bd32ba25-0301-432f-8889-b11c5c83891d - secret for yandex maps geokoder
 
 const findBtn = document.querySelector('.address__btn')!;
@@ -18,7 +18,6 @@ function getData(address:string){
 }
 
 function sendRequest(urlString:string){
-    console.log(54345);
     axios.get(urlString)
         .then(function (response) {
             // handle success
@@ -33,3 +32,22 @@ function showAddressOnMap() {
     sendRequest(urlString);
 }
 
+
+
+    // Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(init);
+    function init(){
+        // Создание карты.
+        var myMap = new ymaps.Map("map", {
+            // Координаты центра карты.
+            // Порядок по умолчанию: «широта, долгота».
+            // Чтобы не определять координаты центра карты вручную,
+            // воспользуйтесь инструментом Определение координат.
+            center: [55.76, 37.64],
+            // Уровень масштабирования. Допустимые значения:
+            // от 0 (весь мир) до 19.
+            zoom: 7
+        });
+        console.log(myMap)
+    }
