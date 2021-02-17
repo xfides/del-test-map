@@ -1,6 +1,5 @@
 import axios from 'axios';
-import ymaps from '@types/yandex-maps'
-//bd32ba25-0301-432f-8889-b11c5c83891d - secret for yandex maps geokoder
+
 
 const findBtn = document.querySelector('.address__btn')!;
 const findInput = document.querySelector('.address__input')! as HTMLInputElement;
