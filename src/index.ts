@@ -6,6 +6,12 @@ const findInput = document.querySelector('.address__input')! as HTMLInputElement
 
 findBtn.addEventListener('click', showAddressOnMap)
 
+function showAddressOnMap() {
+    const userInput = getInputValue(findInput);
+    let urlString:string = getData(userInput);
+    sendRequest(urlString);
+}
+
 function getInputValue(inputDomElem: HTMLInputElement): string {
     return inputDomElem.value.trim();
 }
@@ -16,37 +22,35 @@ function getData(address:string){
     return urlStirng+address;
 }
 
+let address:string;
+
 function sendRequest(urlString:string){
     axios.get(urlString)
         .then(function (response) {
+            address = response.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
+            document.getElementById('map')!.innerHTML = "";
+            ymaps.ready(init);
             // handle success
-            console.log(13232213);
-            console.log(response.data.response);
         })
 }
-
-function showAddressOnMap() {
-    const userInput = getInputValue(findInput);
-    let urlString:string = getData(userInput);
-    sendRequest(urlString);
-}
-
-
-
     // Функция ymaps.ready() будет вызвана, когда
     // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-    ymaps.ready(init);
-    function init(){
+
+
+
+
+function init(){
         // Создание карты.
-        var myMap = new ymaps.Map("map", {
+        new ymaps.Map("map", {
             // Координаты центра карты.
             // Порядок по умолчанию: «широта, долгота».
             // Чтобы не определять координаты центра карты вручную,
             // воспользуйтесь инструментом Определение координат.
-            center: [55.76, 37.64],
+            center: address.split(' ').map((elem)=>{return +elem}).reverse(),
             // Уровень масштабирования. Допустимые значения:
             // от 0 (весь мир) до 19.
             zoom: 7
         });
-        console.log(myMap)
     }
+
+
